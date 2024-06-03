@@ -59,7 +59,7 @@ router.get("/list/:puid", async (req, res) => {
             if (!user) {
                 return res.status(404).json({ message: "User not found." });
             }
-            if (playlist.user !== user._id) {
+            if (playlist.user.toString() !== user._id.toString()) {
                 return res.status(200).json({ allow: false });
             }
         }
